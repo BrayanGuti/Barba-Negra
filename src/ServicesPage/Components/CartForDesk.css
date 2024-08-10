@@ -76,7 +76,12 @@
   border-top: #ccc solid 1px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   margin: 0px 10px 10px 10px;
+}
+
+.send-part span{
+  font-weight: 500;
 }
 
 .send-part button{

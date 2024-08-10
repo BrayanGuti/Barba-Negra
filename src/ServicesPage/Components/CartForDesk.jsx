@@ -2,12 +2,17 @@ import './CartForDesk.css'
 
 
 export function CartForDesk ({ fail, cart, removeFromCart, formatPrice }) {
+  const TotalTime = cart.reduce((totalTime, service) => totalTime + service.duration, 0);
   const total = cart.reduce((acc, product) => acc + parseFloat(product.price), 0)
 
   const isSomethingInTheCart = cart.length > 0
 
   const handleSubmit = () => {
-    window.location.href('index.html')
+    const clonedCart = structuredClone(cart);
+
+    localStorage.setItem('cart', JSON.stringify(clonedCart));
+
+    window.location.href = '/barbers.html'
   }
 
   return (
@@ -39,7 +44,8 @@ export function CartForDesk ({ fail, cart, removeFromCart, formatPrice }) {
       </div>
 
       <div className="send-part">
-        <h4>Total: {formatPrice(total)}</h4>
+        <h4>Total: <span>{formatPrice(total)}</span></h4>
+        <h4>Tiempo: <span>{TotalTime} min</span></h4>
       <button onClick={isSomethingInTheCart ? handleSubmit : null} >Continuar</button>
       </div>
     </aside>

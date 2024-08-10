@@ -2,60 +2,53 @@ import './CartForMobile.css'
 import { useEffect } from 'react';
 
 export function CartForMobile({ fail, cart, removeFromCart, formatPrice }) {
-    const total = cart.reduce((acc, product) => acc + parseFloat(product.price), 0)
-    const isSomethingInTheCart = cart.length > 0
-    const TotalTime = cart.reduce((totalTime, service) => totalTime + service.duration, 0)
-      
-      
+    const total = cart.reduce((acc, product) => acc + parseFloat(product.price), 0);
+    const isSomethingInTheCart = cart.length > 0;
+    const TotalTime = cart.reduce((totalTime, service) => totalTime + service.duration, 0);
 
     const handleSubmit = () => {
-        const inputElement = document.getElementById('CartForMobile');
-        inputElement.checked = true
+        const inputElement = document.getElementById('CartForMobile');    
+        inputElement.checked = true;    
     }
-    
+
+    const handleReservation = () => {
+        const clonedCart = structuredClone(cart);
+
+        localStorage.setItem('cart', JSON.stringify(clonedCart));
+
+        window.location.href = '/barbers.html'
+    }
+
 
     useEffect(() => {
         const inputElement = document.getElementById('CartForMobile');
-        const asideElement = document.querySelector('aside.full-cart');
 
-        inputElement.addEventListener('click', () => {
-            asideElement.classList.remove('no-animation');
-        })
-
-        return () => {
-            inputElement.removeEventListener('click', () => {
-                asideElement.classList.remove('no-animation');
-            })
+        if (cart.length === 0) {
+            inputElement.checked = false;
         }
-    }, [])
-
-    
+    }, [cart]); 
 
     return(
         <>
-            <label className='cart-view' htmlFor={isSomethingInTheCart ? 'CartForMobile' : null}>
+            <label className='cart-view' htmlFor={isSomethingInTheCart ? 'pepe' : null}>
                 <div className="cart-view-container">
                     <div className='cart-view-information'>
                         <h3>Total: {formatPrice(total)}</h3>
                         <h4>{cart.length} servicios - {TotalTime} min</h4>
                     </div>
 
-                    <button onClick={isSomethingInTheCart ? handleSubmit : null} >Continuar</button>
-                    
+                    <button onClick={isSomethingInTheCart ? handleSubmit : null}>Continuar</button>
                     
                     {fail && 
                         <div className="error">
                             No es posible añadir dos servicios de la misma categoría en una única reserva
                         </div>
                     }
-                    
-
                 </div>
             </label>
             <input className="inputForCart" id="CartForMobile" type="checkbox" />
         
-
-            <aside className='full-cart no-animation'>
+            <aside className='full-cart'>
                 <label className='close-icon' htmlFor="CartForMobile">
                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 256 256">
                       <g fill="#777474" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none" style={{ mixBlendMode: "normal" }}>
@@ -86,10 +79,10 @@ export function CartForMobile({ fail, cart, removeFromCart, formatPrice }) {
                 </section>
 
                 { isSomethingInTheCart &&
-                    <button className='reservar-button'>Reservar</button>
+                    <button onClick={handleReservation} className='reservar-button'>Reservar</button>
                 }
 
             </aside>
         </>
-    )
+    );
 }
