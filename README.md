@@ -11,7 +11,6 @@ Welcome to the **Barba Negra** application! This project is designed for a real 
 ## 🛠️ Technologies Used
 
 - **React**: For building the user interface and creating a dynamic, responsive web application.
-- **Astro**: For fast, modern static site generation and optimized performance.
 
 ## 📦 Installation
 
@@ -36,14 +35,11 @@ To get started with the project, follow these steps:
     npm run dev
     ```
 
-    Navigate to `http://localhost:4321` in your browser to see the application in action.
+    Navigate to `http://localhost:5173` in your browser to see the application in action.
 
 ## 🖥️ Usage
 
-- **Booking Appointments:** Visit the `Reservations` page to view available times and book your haircut.
+- **Booking Appointments:** Visit the `Servicios` page to view available times and book your haircut.
 - **Shopping for Products:** Browse the `Products` section to find and purchase your favorite hair care items.
 
-## 🎨 Styling
-
-Custom CSS is used to ensure a polished look and feel. For styling modifications, refer to the `src/styles` directory.
 
