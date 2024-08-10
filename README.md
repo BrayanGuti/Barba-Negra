@@ -1,6 +1,6 @@
 # 🏠 Barba Negra
 
-Welcome to the **Barba Negra** application! This project is designed for a real barbershop, offering functionalities for reserving haircuts and purchasing hair care products and styling items. Built with **React** and **Astro**, this app provides a seamless experience for both clients and barbers.
+Welcome to the **Barba Negra** application! This project is designed for a real barbershop, offering functionalities for reserving haircuts and purchasing hair care products and styling items. Built with **React**, this app provides a seamless experience for both clients and barbers.
 
 ## 🚀 Features
 
