@@ -1,0 +1,254 @@
+body{
+    margin: 0;
+}
+	svg{
+		min-height: 35px;
+		min-width: 35px;
+	}
+
+	.nav-horizontal-a{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: left;
+		font-size: 30px;
+		gap: 10px;
+	}
+	
+	.close-icon{
+		display: block;
+		cursor: pointer;
+		display: flex;
+		justify-content: left;
+		padding-left: 15px;
+		padding-top: 15px;
+	}
+
+	.no-animation {
+ 	 animation: none !important;
+	}
+
+	.nav-horizontal{
+		padding-top: 20px;
+		display: flex;
+		align-items: left;
+		flex-direction: column;
+		margin: 20px auto;
+		gap: 35px;
+		width: 70%;
+	}
+
+
+	.aside{
+		position: fixed;
+		right: 0;
+		top: 0;
+		flex-direction: column;
+		background-color: #000;
+		gap: 7px;
+		z-index: 99999;
+		width: 0vw;
+		height: 100%;
+
+	}
+
+	.lateral-bar{
+		display: none;
+	}
+
+	@keyframes asideMotion {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80vw;
+        max-width: 500px;
+	    }
+	}
+
+	@keyframes asideMotionEnd {
+	    from {
+	        width: 80vw;
+	        max-width: 500px;
+	    }
+	    to {
+	        width: 0;
+	    }
+	}
+
+	.menu-button ~ input:checked ~ .aside {
+	    animation: asideMotion 0.2s linear forwards;
+	}
+
+	.menu-button ~ input:not(:checked) ~ .aside {
+    	animation: asideMotionEnd 0.3s linear forwards;
+	}
+
+
+
+
+
+
+
+	.menu-button{
+		cursor: pointer;
+	}
+
+
+    .titulos a.Inicio::before {
+            width: 100%;
+            visibility: visible;
+        }
+
+    a{
+        text-decoration: none;
+        color: #FFF;
+    }
+    
+
+    header {
+		position: relative;
+		background-color: #0C0C0C;
+		text-align: center;
+		height: 12.5vh;
+		margin: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 3;	
+	}
+
+	.titulos{
+		color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		max-height: 100%;
+		gap: 96px;
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		.titulos{
+			display: none;
+		}
+		.titulos a{
+			font-size: 20px;
+		}
+		header{
+			display: flex;
+			justify-content: end;
+			padding-right: 30px;
+		}
+	}
+
+	@media (min-width: 769px) {
+		label{
+			display: none;
+		}	
+	}
+
+    .titulos a {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-size: 27px;
+    font-family: "Crimson Text", serif;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+
+	}
+
+	.titulos a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px; 
+    bottom: -2px; 
+    left: 0;
+    background-color: #B69576; 
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+	}
+
+
+	.titulos a:hover::before {
+    visibility: visible;
+    width: 100%;
+	}
+	
+	.logo{
+		position: absolute;
+		height: 95%;
+		top: 0;
+		left: 40px;
+	}
+
+	.main{
+		background: url('../../images/Real_background.jpg');
+		background-repeat: no-repeat;
+		background-attachment: local;
+		background-size: cover;
+		background-position: center;
+		height: 87.5vh;
+		position: relative;
+		z-index: 1;
+	}
+
+	.shadow{
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		gap: 20px;
+		
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 999;
+		background: rgba(0, 0, 0, 0.75);
+	}
+
+	h2{
+		width: 70%;
+		color: #FFF;
+		text-align: center;
+		font-family: "Crimson Text";
+		font-size: 68px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+	}
+
+	@media (max-width: 768px) {
+		h2{
+			font-size: 40px;
+		}
+	}
+
+	.main-button{
+		border: 4px solid #FFF;
+		background-color: transparent;
+		color: #FFF;
+		padding: 20px;
+		color: #FFF;
+		text-align: center;
+		font-family: "Crimson Text";
+		font-size: 18px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		border-radius: 5px;
+	
+	}
+
+	.main-button:hover{
+		background-color: #FFF;
+		color: #000;
+		border-radius: 10px;
+		border: 4px solid rgba(0, 0, 0, 0.75);
+		pointer-events: painted;
+		transition: all 0.5s;
+		cursor: pointer;
+}

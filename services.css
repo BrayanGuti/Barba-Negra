@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+}
+      .h2{
+          font-size: 47px;
+          font-family: "Crimson Text", serif;   
+          text-transform: uppercase;
+          margin: 10px;
+      }
+    
+      .root{
+        width: 100%;
+      }
+        .Services{
+         position: relative;
+          display: flex;
+          height: 100vh;
+          margin: 0 auto;
+          max-width: 1360px;
+          width: 95%;
+          flex-direction: column;
+          align-items: center;
+      }   
+
+      
+.container{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+      
+      
+.back-arrow{
+  position: absolute;
+  left: 25px;
+  top: 28%;
+  max-width: 40px;
+  cursor: pointer;
+}
+ 
+@media (max-width: 430px) {
+  .back-arrow{
+    left: 0px;
+  }
+}

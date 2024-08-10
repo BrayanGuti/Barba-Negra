@@ -1,0 +1,128 @@
+.scrollable-div {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  border-radius: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent;
+  height: 70vh;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+/* Estilos para el scroll en navegadores WebKit */
+.scrollable-div::-webkit-scrollbar {
+    width: 8px;
+    color: transparent;
+    
+}
+
+.scrollable-div::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.scrollable-div::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: 2px solid #ccc;
+
+}
+
+
+
+  
+  .service-category {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 20px;
+  }
+  
+  .service-category h2 {
+    font-family: system-ui, sans-serif; 
+
+    font-size: 24px;
+    margin: 5px;
+  }
+  
+  .service-item {
+    border-radius: 7px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    list-style-type: none;
+    background-color: #fff;
+    border: 1px solid #0C0C0C;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+
+  }
+
+  @media (max-width: 768px) {
+  .service-item {
+    flex-direction: column;
+  }
+
+
+
+
+  .reserve-button{
+    max-width: 200px;
+    width: 80%;
+  }
+
+  }
+
+  
+  .service-item h3 {
+    font-family: system-ui, sans-serif; 
+
+    font-size: 20px;
+    margin: 5px 0px;
+  }
+  
+  .service-item p {
+    font-family: system-ui, sans-serif; 
+    margin: 5px 0;  
+  }
+  
+  .service-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .reserve-button {
+    font-family: system-ui, sans-serif; 
+
+    font-size: 15px;
+    border-radius: 8%;
+    background-color:  #5B3A2B ;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+  .reserve-button:hover {
+    background-color: #382C1E;
+  }
+
+  .left{
+    display: flex;
+    justify-content: end;
+  }
+
+span{
+    font-weight: 700;
+    font-family: system-ui, sans-serif; 
+
+
+}
