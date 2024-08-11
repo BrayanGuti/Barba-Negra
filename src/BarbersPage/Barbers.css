@@ -1,3 +1,30 @@
-h1{
-  color: rebeccapurple;
+body{
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.main-container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.barber-galery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.barber-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.barber-container img{
+  height: 100px;
+}
+
+.barber-galery > .barber-container:nth-child(odd):last-child {
+  grid-column: span 2;
+  justify-content: center;
 }

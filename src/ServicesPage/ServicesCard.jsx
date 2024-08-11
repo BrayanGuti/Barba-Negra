@@ -18,7 +18,8 @@ export default function ServicesCard () {
       duration: 30, // minutos
       personnel: [
         { name: 'Juan Pérez', thumbnail: 'url/to/juan-thumbnail.jpg' },
-        { name: 'María Gómez', thumbnail: 'url/to/maria-thumbnail.jpg' }
+        { name: 'María Gómez', thumbnail: 'url/to/maria-thumbnail.jpg' },
+        { name: 'Lucia jaramillo', thumbnail: 'url/to/maria-thumbnail.jpg' }
       ]
     },
     {
