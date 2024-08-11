@@ -18,13 +18,24 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #0c0c0c;
+  color: #fff;
+  padding: 10px;
+  height: 200px;
+  border-radius: 7px;
 }
 
 .barber-container img{
-  height: 100px;
+  height: 80%;
 }
 
 .barber-galery > .barber-container:nth-child(odd):last-child {
   grid-column: span 2;
-  justify-content: center;
+  width: min-content;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.selected-day{
+  background-color: red;
 }

@@ -1,16 +1,15 @@
 import './CartForDesk.css'
 
-
 export function CartForDesk ({ fail, cart, removeFromCart, formatPrice }) {
-  const TotalTime = cart.reduce((totalTime, service) => totalTime + service.duration, 0);
+  const TotalTime = cart.reduce((totalTime, service) => totalTime + service.duration, 0)
   const total = cart.reduce((acc, product) => acc + parseFloat(product.price), 0)
 
   const isSomethingInTheCart = cart.length > 0
 
   const handleSubmit = () => {
-    const clonedCart = structuredClone(cart);
+    const clonedCart = structuredClone(cart)
 
-    localStorage.setItem('cart', JSON.stringify(clonedCart));
+    localStorage.setItem('cart', JSON.stringify(clonedCart))
 
     window.location.href = '/barbers.html'
   }

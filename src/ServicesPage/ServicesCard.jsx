@@ -7,7 +7,6 @@ import { Slider } from './Components/Slider.jsx'
 import './ServicesCard.css'
 
 export default function ServicesCard () {
-
   const listOfServices = [
     {
       id: 1,
@@ -169,20 +168,19 @@ export default function ServicesCard () {
       ]
     }
   ]
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
+      setWindowWidth(window.innerWidth)
     }
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize)
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
-
 
   const { fail, addToCart, cart, removeFromCart, formatPrice } = UseCart()
 
@@ -198,7 +196,7 @@ export default function ServicesCard () {
 
   return (
     <div className="services-container">
-      
+
         <>
           <Slider categories={categories} />
           <Services
@@ -208,27 +206,28 @@ export default function ServicesCard () {
             addToCart={addToCart}
             groupedServices={groupedServices}
           />
-          
 
           {
-            windowWidth <= 768 ? (
+            windowWidth <= 768
+              ? (
               <CartForMobile
                 fail={fail}
                 formatPrice={formatPrice}
                 removeFromCart={removeFromCart}
                 cart={cart}
               />
-            ) : (
+                )
+              : (
               <CartForDesk
                 fail={fail}
                 formatPrice={formatPrice}
                 removeFromCart={removeFromCart}
                 cart={cart}
               />
-            )
+                )
           }
         </>
-        
+
     </div>
   )
 }
