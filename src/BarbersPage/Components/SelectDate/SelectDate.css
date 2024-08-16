@@ -1,0 +1,38 @@
+.all-days{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  .days{
+    background-color: rgb(30, 87, 153);
+    color: #fff;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    border: 2px solid rgb(30, 48, 153);
+    cursor: pointer;
+  }
+  
+  .selected-day{
+    background-color: red;
+    border: 2px solid rgb(134, 0, 0);
+  
+  }
+  
+  .hours-available{ 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .hours-available button{
+    width: 140px;
+    height: 30px;
+    margin: 0 auto;
+    background-color: #D8CBBB;
+  }
+
+.selected-hour{
+    background-color: red !important;
+}

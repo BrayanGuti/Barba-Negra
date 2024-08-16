@@ -1,0 +1,43 @@
+.barber-galery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.barber-galery > .barber-container:nth-child(odd):last-child {
+  grid-column: span 2;
+  width: min-content;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.barber-container {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0c0c0c;
+  color: #fff;
+  padding: 10px;
+  height: 200px;
+  border-radius: 7px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.barber-container img {
+  height: 80%;
+  border-radius: 7px;
+}
+
+.barber-container p {
+  margin: auto 0;
+}
+
+.barber-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+
+  

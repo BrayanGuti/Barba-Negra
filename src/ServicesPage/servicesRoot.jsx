@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import ServicesCard from './ServicesCard.jsx'
+import ServicesMainFather from './ServicesMainFather.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ServicesCard />
+    <ServicesMainFather />
   </React.StrictMode>
 )

@@ -1,12 +1,12 @@
-import { Services } from './Components/Services.jsx'
-import { CartForDesk } from './Components/CartForDesk.jsx'
-import { CartForMobile } from './Components/CartForMobile.jsx'
-import { UseCart } from '../hooks/UseCart.js'
+import { Services } from './Components/Servicess/Services.jsx'
+import { CartForDesk } from './Components/CartForDesk/CartForDesk.jsx'
+import { CartForMobile } from './Components/CartForMobile/CartForMobile.jsx'
+import { UseCart } from './Hooks/UseCart.js'
 import { useState, useEffect } from 'react'
-import { Slider } from './Components/Slider.jsx'
-import './ServicesCard.css'
+import { Slider } from './Components/Slider/Slider.jsx'
+import './ServicesMainFather.css'
 
-export default function ServicesCard () {
+export default function ServicesMainFather () {
   const listOfServices = [
     {
       id: 1,
@@ -168,6 +168,7 @@ export default function ServicesCard () {
       ]
     }
   ]
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   useEffect(() => {

@@ -1,0 +1,16 @@
+.main-container{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.All-Scheduler{
+    background-color: #F7F7F7;
+    height: 95vh;
+}
+
+.All-Scheduler h1{
+    margin: 0;
+    padding: 20px;
+    background-color: #F7F7F7;
+}

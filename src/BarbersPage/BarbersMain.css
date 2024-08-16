@@ -1,0 +1,51 @@
+body{
+  margin: 0;
+
+  font-family: system-ui, sans-serif;
+}
+
+.all-pages{
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #F7F7F7;
+  background-color: #CDCDCD;
+}
+
+
+.cart-pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Necesario para posicionar el pseudo-elemento */
+  padding: 9px 12px;
+  color: #000;
+  border: none;
+  background-color: #CDCDCD;
+  transition: background-color 0.3s; /* Cambiado a background-color */
+  cursor: pointer;
+}
+
+.cart-pages.selected {
+  background-color: #F7F7F7; /* Cambiado a background-color */
+  border-top: #CDCDCD solid 1px;
+}
+
+.cart-pages:not(.selected):hover {
+  background-color: #DADADA; /* Cambiado a background-color y corregido el selector */
+}
+
+
+
+.cart-pages:not(.selected)::after {
+  content: '';
+  position: absolute;
+  top: 15%; /* Ajusta este valor para controlar dónde comienza el borde */
+  bottom: 15%; /* Ajusta este valor para controlar dónde termina el borde */
+  right: 0;
+  width: 1px;
+  background-color: #727272;
+}
+
+
+

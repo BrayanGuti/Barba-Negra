@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Barbers from './Barbers.jsx'
+import BarbersMain from './BarbersMain.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Barbers />
+    <BarbersMain />
   </React.StrictMode>
 )
