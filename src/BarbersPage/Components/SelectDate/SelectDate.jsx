@@ -5,7 +5,7 @@ import './SelectDate.css'
 export function SelectDate ({ cart, handleHoursSelection, barber }) {
   const reservations = [
     {
-      day: 11,
+      day: 17,
       month: 7,
       Reservations: [
         { start: '09:00', end: '09:30' },
@@ -18,7 +18,7 @@ export function SelectDate ({ cart, handleHoursSelection, barber }) {
       ]
     },
     {
-      day: 12,
+      day: 18,
       month: 7,
       Reservations: [
         { start: '09:15', end: '09:45' },
@@ -30,7 +30,7 @@ export function SelectDate ({ cart, handleHoursSelection, barber }) {
       ]
     },
     {
-      day: 13,
+      day: 19,
       month: 7,
       Reservations: [
         { start: '09:00', end: '09:30' },
@@ -42,7 +42,7 @@ export function SelectDate ({ cart, handleHoursSelection, barber }) {
       ]
     },
     {
-      day: 14,
+      day: 20,
       month: 7,
       Reservations: [
         { start: '09:30', end: '10:00' },
@@ -55,7 +55,7 @@ export function SelectDate ({ cart, handleHoursSelection, barber }) {
       ]
     },
     {
-      day: 15,
+      day: 21,
       month: 7,
       Reservations: [
         { start: '09:00', end: '09:40' },
@@ -68,7 +68,7 @@ export function SelectDate ({ cart, handleHoursSelection, barber }) {
       ]
     },
     {
-      day: 16,
+      day: 22,
       month: 7,
       Reservations: [
         { start: '09:00', end: '09:30' },
@@ -86,6 +86,8 @@ export function SelectDate ({ cart, handleHoursSelection, barber }) {
     'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
   ]
 
+  const [selectedHour, setSelectedHour] = useState(null)
+  const [selectedInterval, setSelectedInterval] = useState(null)
   const [dateArray, setDateArray] = useState([])
   const [selectedDate, setSelectedDate] = useState(null)
 
@@ -115,11 +117,14 @@ export function SelectDate ({ cart, handleHoursSelection, barber }) {
 
   const handleSelectedDay = (date) => {
     setSelectedDate(date)
+    setSelectedHour(null)
+    setSelectedInterval(null)
   }
 
   return (
-      <section>
-        <h2>Selecciona tu fecha y hora con {barber.name}</h2>
+      <section className="shift-left-date">
+        <h2>Selecciona tu fecha y hora con </h2>
+        <h2 className='barber-name'>{barber.name}</h2>
         {selectedDate && <h3>{spanishMonths[selectedDate.month]}</h3>}
         <div className="all-days">
           {dateArray.map((date, index) => (
@@ -139,17 +144,26 @@ export function SelectDate ({ cart, handleHoursSelection, barber }) {
             cart={cart}
             selectedDate={selectedDate}
             reservations={reservations}
+            setSelectedInterval={setSelectedInterval}
+            selectedInterval={selectedInterval}
+            selectedHour={selectedHour}
+            setSelectedHour={setSelectedHour}
           />
         )}
       </section>
   )
 }
 
-function SelectedHour ({ cart, selectedDate, reservations, handleHoursSelection }) {
-  const [selectedHour, setSelectedHour] = useState(null)
+function SelectedHour ({ cart, selectedDate, reservations, handleHoursSelection, setSelectedHour, selectedHour, setSelectedInterval, selectedInterval }) {
+  const handleHourChange = (event) => {
+    const hour = parseInt(event.target.value, 10)
+    setSelectedHour(hour)
+    setSelectedInterval(null)
+  }
 
-  const handleHourIsSelected = (slot) => {
-    setSelectedHour(slot)
+  const handleIntervalChange = (event) => {
+    const interval = event.target.value
+    setSelectedInterval(interval)
   }
 
   const selectedDayReservations = reservations.find(
@@ -161,35 +175,44 @@ function SelectedHour ({ cart, selectedDate, reservations, handleHoursSelection 
 
   const timeSlots = generateTimeSlots(serviceDuration, notAvailableReservations)
 
+  const hoursOptions = Array.from(new Set(timeSlots.map(slot => slot[0]))).map(hour => (
+    <option key={hour} value={hour}>{`${String(hour).padStart(2, '0')}:00`}</option>
+  ))
+
+  const intervalsOptions = timeSlots.find(slot => slot[0] === selectedHour)?.[1] || []
+
   return (
     <div className="hours">
       <h4>Horas disponibles</h4>
-      <div className="hours-available">
-        {timeSlots.length > 0
-          ? (
-            <>
-              {timeSlots.map((slot, index) => (
-                <button
-                  onClick={() => handleHourIsSelected(slot)}
-                  key={index}
-                  className={selectedHour && selectedHour.start === slot.start && selectedHour.end === slot.end ? 'selected-hour' : ''}
-                >
-                  {slot.start} - {slot.end}
-                </button>
+      {timeSlots.length > 0
+        ? (
+        <>
+          <h3>Selecciona la hora de tu cita</h3>
+          <div className="select-container">
+            <select id="hour-select" onChange={handleHourChange} value={selectedHour || ''}>
+              <option value="" disabled>-- Selecciona una hora --</option>
+              {hoursOptions}
+            </select>
+
+            <select disabled={!selectedHour} id="interval-select" onChange={handleIntervalChange} value={selectedInterval || ''}>
+              <option value="" disabled>-- Selecciona un intervalo --</option>
+              {intervalsOptions.map((interval, index) => (
+                <option key={index} value={[interval.start, interval.end]}>{`${interval.start} - ${interval.end}`}</option>
               ))}
-              <button
-                onClick={() => selectedHour && handleHoursSelection({ setSelectedHour })}
-                disabled={!selectedHour}
-              >
-                Confirmar Hora
-              </button>
-            </>
-            )
-          : (
-            <p>No hay horas disponibles</p>
-            )
-        }
-      </div>
+            </select>
+
+            <button
+              onClick={() => selectedInterval && handleHoursSelection({ setSelectedInterval, selectedDate, selectedInterval })}
+              disabled={!selectedInterval}
+            >
+              Confirmar Hora
+            </button>
+          </div>
+        </>
+          )
+        : (
+        <p>No hay horas disponibles</p>
+          )}
     </div>
   )
 }
@@ -208,7 +231,7 @@ const generateTimeSlots = (serviceDuration, notAvailableReservations) => {
 
   const startMinutes = timeToMinutes('09:00')
   const endMinutes = timeToMinutes('19:00')
-  const timeSlots = []
+  const timeSlots = {}
 
   for (let i = startMinutes; i + serviceDuration <= endMinutes; i += serviceDuration) {
     const slotStart = i
@@ -221,12 +244,16 @@ const generateTimeSlots = (serviceDuration, notAvailableReservations) => {
     })
 
     if (isAvailable) {
-      timeSlots.push({
+      const hour = Math.floor(slotStart / 60)
+      if (!timeSlots[hour]) {
+        timeSlots[hour] = []
+      }
+      timeSlots[hour].push({
         start: minutesToTime(slotStart),
         end: minutesToTime(slotEnd)
       })
     }
   }
 
-  return timeSlots
+  return Object.keys(timeSlots).map(hour => [parseInt(hour, 10), timeSlots[hour]])
 }

@@ -1,7 +1,7 @@
 import { SelectBarber } from '../../Components/SelectBarber/SelectBarber'
 import './AppointmentScheduler.css'
 
-export function AppointmentScheduler ({ cart, handleHoursSelection }) {
+export function AppointmentScheduler ({ cart, handleHoursSelection, setBarber, barber }) {
   return (
     <section className='All-Scheduler'>
       <h1>
@@ -9,6 +9,8 @@ export function AppointmentScheduler ({ cart, handleHoursSelection }) {
       </h1>
 
         <SelectBarber
+          barber={barber}
+          setBarber={setBarber}
           cart={cart}
           handleHoursSelection={handleHoursSelection}
         />

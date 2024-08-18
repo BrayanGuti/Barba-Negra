@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { AppointmentScheduler } from './Components/AppointmentScheduler/AppointmentScheduler'
 import './BarbersMain.css'
 
@@ -6,6 +6,8 @@ export default function Barbers () {
   const [cart, setCart] = useState([])
   const [selectedCartIndex, setSelectedCartIndex] = useState(0)
   const [lastServicePage, setLastServicePage] = useState(0)
+  const [barber, setBarber] = useState(null)
+  const allServicesInformation = useRef()
 
   useEffect(() => {
     try {
@@ -17,8 +19,19 @@ export default function Barbers () {
     }
   }, [])
 
-  const handleHoursSelection = ({ setSelectedHour }) => {
-    setSelectedHour(false)
+  const handleHoursSelection = ({ setSelectedInterval, selectedDate, selectedInterval }) => {
+    allServicesInformation.current = {
+      ...allServicesInformation.current,
+      [cart[selectedCartIndex].name]: {
+        barber: barber.name,
+        selectedDate,
+        selectedInterval
+      }
+    }
+    console.log(allServicesInformation.current)
+
+    setSelectedInterval(false)
+    setBarber(null)
     setLastServicePage(selectedCartIndex + 1)
     if (selectedCartIndex < cart.length - 1) {
       return setSelectedCartIndex(selectedCartIndex + 1)
@@ -31,6 +44,7 @@ export default function Barbers () {
 
   const handleServicesSelection = (index) => {
     if (lastServicePage >= index) {
+      setBarber(null)
       setSelectedCartIndex(index)
     }
   }
@@ -47,6 +61,8 @@ export default function Barbers () {
           />
 
           <AppointmentScheduler
+            barber={barber}
+            setBarber={setBarber}
             cart={cart[selectedCartIndex]}
             handleHoursSelection={handleHoursSelection}
           />
