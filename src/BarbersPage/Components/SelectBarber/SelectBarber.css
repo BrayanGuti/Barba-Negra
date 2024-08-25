@@ -24,9 +24,6 @@
   animation: slideLeft 1s ease forwards; 
 }
 
-
-
-
 .barber-galery {
   width: min-content;
   display: grid;
@@ -39,6 +36,23 @@
   width: min-content;
   margin: 0 auto;
   padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .barber-galery{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shadow-container.shift-left {  
+    animation: none; 
+  }
+
+  .shadow-container {
+    margin: auto 0;
+    width: 80vw;
+    height: 60vh;
+  }
 }
 
 .barber-container {

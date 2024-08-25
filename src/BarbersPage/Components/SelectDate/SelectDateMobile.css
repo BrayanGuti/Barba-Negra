@@ -1,0 +1,36 @@
+.aside{
+    position: fixed;
+    right: 0;
+    top: 0;
+    flex-direction: column;
+    background-color: #000;
+    gap: 7px;
+    z-index: 99999;
+    width: 80vw;
+    height: 100%;
+    animation: asideMotion 0.2s linear forwards;
+}
+
+.close-aside{
+    animation: asideMotionEnd 0.3s linear forwards;
+}
+
+@keyframes asideMotion {
+from {
+    width: 0;
+}
+to {
+    width: 80vw;
+    max-width: 500px;
+    }
+}
+
+@keyframes asideMotionEnd {
+    from {
+        width: 80vw;
+        max-width: 500px;
+    }
+    to {
+        width: 0;
+    }
+}

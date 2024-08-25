@@ -20,6 +20,7 @@ export function SelectBarber ({ cart, handleHoursSelection, setBarber, barber })
       </div>
       {barber && (
         <SelectDate
+          setBarber={setBarber}
           handleHoursSelection={handleHoursSelection}
           cart={cart}
           barber={barber}

@@ -7,39 +7,42 @@ export default function Barbers () {
   const [selectedCartIndex, setSelectedCartIndex] = useState(0)
   const [lastServicePage, setLastServicePage] = useState(0)
   const [barber, setBarber] = useState(null)
-  const allServicesInformation = useRef()
+  const [serviceChangeNotification, setServiceChangeNotification] = useState(false)
+  const [showNotification, setShowNotification] = useState(false)
+  const allServicesInformation = useRef({})
 
   useEffect(() => {
-    try {
-      const savedCart = JSON.parse(localStorage.getItem('cart')) || []
-      setCart(savedCart)
-    } catch (error) {
-      console.log('Error al obtener el carrito del localStorage:', error)
-      setCart([])
-    }
+    const savedCart = JSON.parse(localStorage.getItem('cart')) || []
+    setCart(savedCart)
   }, [])
 
   const handleHoursSelection = ({ setSelectedInterval, selectedDate, selectedInterval }) => {
+    const currentService = cart[selectedCartIndex]?.name
+
+    if (allServicesInformation.current[currentService]) {
+      setServiceChangeNotification(true)
+      setTimeout(() => setShowNotification(true), 1)
+      setTimeout(() => setShowNotification(false), 2500)
+      setTimeout(() => setServiceChangeNotification(false), 3000)
+    }
+
     allServicesInformation.current = {
       ...allServicesInformation.current,
-      [cart[selectedCartIndex].name]: {
-        barber: barber.name,
+      [currentService]: {
+        barber: barber?.name,
         selectedDate,
         selectedInterval
       }
     }
-    console.log(allServicesInformation.current)
-
     setSelectedInterval(false)
     setBarber(null)
     setLastServicePage(selectedCartIndex + 1)
     if (selectedCartIndex < cart.length - 1) {
-      return setSelectedCartIndex(selectedCartIndex + 1)
+      setSelectedCartIndex(selectedCartIndex + 1)
+    } else {
+      handleServicesSelection(selectedCartIndex)
+      console.log('Cita agendada')
     }
-
-    handleServicesSelection(selectedCartIndex)
-
-    console.log('Cita agendada')
   }
 
   const handleServicesSelection = (index) => {
@@ -51,6 +54,11 @@ export default function Barbers () {
 
   return (
     <>
+      {serviceChangeNotification && (
+        <div className={showNotification ? 'notification show' : 'notification'}>
+          Su cita se ha cambiado con exito
+        </div>
+      )}
       {cart.length > 0 && (
         <>
           <ServicesPages
@@ -59,7 +67,6 @@ export default function Barbers () {
             cart={cart}
             handleServicesSelection={handleServicesSelection}
           />
-
           <AppointmentScheduler
             barber={barber}
             setBarber={setBarber}

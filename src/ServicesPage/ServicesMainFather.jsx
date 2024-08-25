@@ -10,15 +10,14 @@ export default function ServicesMainFather () {
   const listOfServices = [
     {
       id: 1,
-      name: 'corte de cabello',
-      price: '20000',
+      name: 'Corte de Cabello',
+      price: '25000',
       category: 'Cortes',
-      description: 'Renueva tu estilo con un corte de cabello moderno y profesional que se adapta a tus gustos y necesidades.',
+      description: 'Corte de cabello profesional adaptado a tu estilo.',
       duration: 30, // minutos
       personnel: [
         { name: 'Juan Pérez', thumbnail: 'url/to/juan-thumbnail.jpg' },
-        { name: 'María Gómez', thumbnail: 'url/to/maria-thumbnail.jpg' },
-        { name: 'Lucia jaramillo', thumbnail: 'url/to/maria-thumbnail.jpg' }
+        { name: 'María Gómez', thumbnail: 'url/to/maria-thumbnail.jpg' }
       ]
     },
     {
@@ -26,7 +25,7 @@ export default function ServicesMainFather () {
       name: 'Corte de Barba',
       price: '15000',
       category: 'Cortes',
-      description: 'Dale forma y definición a tu barba con un corte preciso y cuidado que resalta tu mejor versión.',
+      description: 'Corte de barba preciso que resalta tu estilo.',
       duration: 20, // minutos
       personnel: [
         { name: 'Carlos Ruiz', thumbnail: 'url/to/carlos-thumbnail.jpg' }
@@ -34,137 +33,126 @@ export default function ServicesMainFather () {
     },
     {
       id: 3,
-      name: 'corte de cabello y barba',
-      price: '30000',
+      name: 'Combo Barba Negra',
+      price: '35000',
       category: 'Cortes',
-      description: 'Obtén un look completo con un corte de cabello y barba que te dejará impecable y a la moda.',
+      description: 'Corte y mascarilla para una barba impecable.',
       duration: 45, // minutos
       personnel: [
-        { name: 'Juan Pérez', thumbnail: 'url/to/juan-thumbnail.jpg' },
-        { name: 'Carlos Ruiz', thumbnail: 'url/to/carlos-thumbnail.jpg' }
-      ]
-    },
-    {
-      id: 4,
-      name: 'manicure',
-      price: '15000',
-      category: 'Manicure',
-      description: 'Embellece tus manos con una manicure que incluye corte, limado y cuidado de cutículas para un acabado perfecto.',
-      duration: 30, // minutos
-      personnel: [
-        { name: 'Ana López', thumbnail: 'url/to/ana-thumbnail.jpg' },
+        { name: 'Pedro Gómez', thumbnail: 'url/to/pedro-thumbnail.jpg' },
         { name: 'Laura Martínez', thumbnail: 'url/to/laura-thumbnail.jpg' }
       ]
     },
     {
-      id: 5,
-      name: 'manicure con esmalte permanente',
-      price: '20000',
-      category: 'Manicure',
-      description: 'Disfruta de unas uñas perfectas por más tiempo con nuestro esmalte permanente de alta calidad.',
-      duration: 40, // minutos
+      id: 4,
+      name: 'Combo Pirata',
+      price: '40000',
+      category: 'Cortes',
+      description: 'Corte, mascarilla y exfoliación para un look único.',
+      duration: 60, // minutos
       personnel: [
-        { name: 'Ana López', thumbnail: 'url/to/ana-thumbnail.jpg' }
+        { name: 'Ana López', thumbnail: 'url/to/ana-thumbnail.jpg' },
+        { name: 'Jorge García', thumbnail: 'url/to/jorge-thumbnail.jpg' }
+      ]
+    },
+    {
+      id: 5,
+      name: 'Corte y Rayito',
+      price: '150000',
+      category: 'Cortes',
+      description: 'Corte con rayito para un estilo audaz y moderno.',
+      duration: 90, // minutos
+      personnel: [
+        { name: 'Clara Mendoza', thumbnail: 'url/to/clara-thumbnail.jpg' }
       ]
     },
     {
       id: 6,
-      name: 'manicure con diseño',
-      price: '25000',
-      category: 'Manicure',
-      description: 'Exprésate con estilo a través de un diseño único en tus uñas, realizado por nuestros expertos.',
-      duration: 45, // minutos
+      name: 'Peinados',
+      price: '15000',
+      category: 'Peinados',
+      description: 'Peinados elegantes para cualquier ocasión.',
+      duration: 30, // minutos
       personnel: [
+        { name: 'Sara Ríos', thumbnail: 'url/to/sara-thumbnail.jpg' },
         { name: 'Laura Martínez', thumbnail: 'url/to/laura-thumbnail.jpg' }
       ]
     },
     {
       id: 7,
-      name: 'pedicure',
-      price: '20000',
-      category: 'Pedicure',
-      description: 'Cuida tus pies con un pedicure completo que incluye exfoliación, corte de uñas y tratamiento de cutículas.',
-      duration: 40, // minutos
+      name: 'Aminoácidos',
+      price: '50000',
+      category: 'Tratamientos Capilares',
+      description: 'Tratamiento capilar con aminoácidos para fortalecer tu cabello.',
+      duration: 60, // minutos
       personnel: [
-        { name: 'Carlos Ruiz', thumbnail: 'url/to/carlos-thumbnail.jpg' }
+        { name: 'Mario Ramírez', thumbnail: 'url/to/mario-thumbnail.jpg' }
       ]
     },
     {
       id: 8,
-      name: 'pedicure con masaje',
-      price: '25000',
-      category: 'Pedicure',
-      description: 'Relájate y disfruta de un pedicure que incluye un masaje revitalizante para tus pies.',
-      duration: 50, // minutos
+      name: 'Keratina',
+      price: '50000',
+      category: 'Tratamientos Capilares',
+      description: 'Alisado con keratina para un cabello suave y brillante.',
+      duration: 90, // minutos
       personnel: [
-        { name: 'Carlos Ruiz', thumbnail: 'url/to/carlos-thumbnail.jpg' },
-        { name: 'Laura Martínez', thumbnail: 'url/to/laura-thumbnail.jpg' }
+        { name: 'Sofía Gómez', thumbnail: 'url/to/sofia-thumbnail.jpg' }
       ]
     },
     {
       id: 9,
-      name: 'limpieza facial',
-      price: '30000',
-      category: 'Faciales',
-      description: 'Purifica y renueva tu piel con una limpieza facial profunda que elimina impurezas y células muertas.',
-      duration: 30, // minutos
+      name: 'Tintura',
+      price: '50000',
+      category: 'Tratamientos Capilares',
+      description: 'Coloración capilar para un cambio de look espectacular.',
+      duration: 120, // minutos
       personnel: [
-        { name: 'Ana López', thumbnail: 'url/to/ana-thumbnail.jpg' }
+        { name: 'Natalia Herrera', thumbnail: 'url/to/natalia-thumbnail.jpg' }
       ]
     },
     {
       id: 10,
-      name: 'mascarilla hidratante',
-      price: '20000',
-      category: 'Faciales',
-      description: 'Hidrata y nutre tu piel con una mascarilla rica en nutrientes que deja tu rostro radiante.',
-      duration: 20, // minutos
+      name: 'Decoloración',
+      price: '200000',
+      category: 'Tratamientos Capilares',
+      description: 'Decoloración profesional para un look radical.',
+      duration: 150, // minutos
       personnel: [
-        { name: 'Laura Martínez', thumbnail: 'url/to/laura-thumbnail.jpg' }
+        { name: 'Carolina Suárez', thumbnail: 'url/to/carolina-thumbnail.jpg' }
       ]
     },
     {
       id: 11,
-      name: 'depilación de cejas',
+      name: 'Mascarilla + Exfoliante',
       price: '15000',
-      category: 'Depilación',
-      description: 'Define y realza la forma de tus cejas con una depilación precisa y profesional.',
-      duration: 15, // minutos
+      category: 'Adicionales',
+      description: 'Cuidado facial completo con mascarilla y exfoliante.',
+      duration: 30, // minutos
       personnel: [
-        { name: 'Ana López', thumbnail: 'url/to/ana-thumbnail.jpg' }
+        { name: 'Luis Torres', thumbnail: 'url/to/luis-thumbnail.jpg' }
       ]
     },
     {
       id: 12,
-      name: 'depilación de piernas',
-      price: '35000',
-      category: 'Depilación',
-      description: 'Disfruta de unas piernas suaves y libres de vello con nuestro servicio de depilación profesional.',
-      duration: 45, // minutos
+      name: 'Pigmento de Barba',
+      price: '15000',
+      category: 'Adicionales',
+      description: 'Pigmentación de barba para un look más definido.',
+      duration: 25, // minutos
       personnel: [
-        { name: 'Ana López', thumbnail: 'url/to/ana-thumbnail.jpg' }
+        { name: 'Miguel Fernández', thumbnail: 'url/to/miguel-thumbnail.jpg' }
       ]
     },
     {
       id: 13,
-      name: 'masaje relajante',
-      price: '40000',
-      category: 'Masajes',
-      description: 'Libera el estrés y la tensión con un masaje relajante que revitaliza tu cuerpo y mente.',
-      duration: 60, // minutos
+      name: 'Depilación',
+      price: '15000',
+      category: 'Adicionales',
+      description: 'Depilación profesional para una piel suave.',
+      duration: 20, // minutos
       personnel: [
-        { name: 'Carlos Ruiz', thumbnail: 'url/to/carlos-thumbnail.jpg' }
-      ]
-    },
-    {
-      id: 14,
-      name: 'masaje descontracturante',
-      price: '45000',
-      category: 'Masajes',
-      description: 'Alivia los músculos tensos y contracturados con un masaje profundo y terapéutico.',
-      duration: 75, // minutos
-      personnel: [
-        { name: 'Carlos Ruiz', thumbnail: 'url/to/carlos-thumbnail.jpg' }
+        { name: 'Andrea Luna', thumbnail: 'url/to/andrea-thumbnail.jpg' }
       ]
     }
   ]

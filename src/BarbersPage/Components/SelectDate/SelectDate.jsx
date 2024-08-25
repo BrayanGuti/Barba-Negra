@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
 import { addDays } from 'date-fns'
 import './SelectDate.css'
+import './SelectDateMobile.css'
 
-export function SelectDate ({ cart, handleHoursSelection, barber }) {
+export function SelectDate ({ cart, handleHoursSelection, barber, setBarber }) {
   const reservations = [
     {
       day: 17,
@@ -85,11 +86,22 @@ export function SelectDate ({ cart, handleHoursSelection, barber }) {
     'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
     'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
   ]
-
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [selectedHour, setSelectedHour] = useState(null)
   const [selectedInterval, setSelectedInterval] = useState(null)
   const [dateArray, setDateArray] = useState([])
   const [selectedDate, setSelectedDate] = useState(null)
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   useEffect(() => {
     const now = new Date()
@@ -121,36 +133,78 @@ export function SelectDate ({ cart, handleHoursSelection, barber }) {
     setSelectedInterval(null)
   }
 
-  return (
-      <section className="shift-left-date">
-        <h2>Selecciona tu fecha y hora con </h2>
-        <h2 className='barber-name'>{barber.name}</h2>
-        {selectedDate && <h3>{spanishMonths[selectedDate.month]}</h3>}
-        <div className="all-days">
-          {dateArray.map((date, index) => (
-            <button
-              onClick={() => handleSelectedDay(date)}
-              className={`days ${selectedDate && selectedDate.day === date.day ? 'selected-day' : ''}`}
-              key={index}
-            >
-              {date.day}
-            </button>
-          ))}
-        </div>
+  const handleCloseAside = () => {
+    const asideElemnt = document.querySelector('.aside')
+    asideElemnt.classList.add('close-aside')
+    setTimeout(() => { setBarber(null) }, 400)
+  }
 
-        {selectedDate && (
-          <SelectedHour
-            handleHoursSelection={handleHoursSelection}
-            cart={cart}
-            selectedDate={selectedDate}
-            reservations={reservations}
-            setSelectedInterval={setSelectedInterval}
-            selectedInterval={selectedInterval}
-            selectedHour={selectedHour}
-            setSelectedHour={setSelectedHour}
-          />
-        )}
-      </section>
+  return (
+    <>
+      {
+            windowWidth <= 768
+              ? (
+                  <aside className="aside">
+                    <svg onClick={handleCloseAside}
+    xmlns="http://www.w3.org/2000/svg"
+    x="0px"
+    y="0px"
+    width="50"
+    height="50"
+    viewBox="0 0 256 256"
+    fill="#777474"
+    fillRule="nonzero"
+    stroke="none"
+    strokeWidth="1"
+    strokeLinecap="butt"
+    strokeLinejoin="miter"
+    strokeMiterlimit="10"
+    fontFamily="none"
+    fontWeight="none"
+    fontSize="none"
+    textAnchor="none"
+    style={{ mixBlendMode: 'normal' }}
+  >
+    <g transform="scale(5.12,5.12)">
+      <path d="M9.15625,6.3125l-2.84375,2.84375l15.84375,15.84375l-15.9375,15.96875l2.8125,2.8125l15.96875,-15.9375l15.9375,15.9375l2.84375,-2.84375l-15.9375,-15.9375l15.84375,-15.84375l-2.84375,-2.84375l-15.84375,15.84375z"></path>
+    </g>
+                    </svg>
+                  </aside>
+                )
+              : (
+                  <section className="shift-left-date">
+                    <h2>Selecciona tu fecha y hora con </h2>
+                    <h2 className='barber-name'>{barber.name}</h2>
+                    {selectedDate && <h3>{spanishMonths[selectedDate.month]}</h3>}
+                    <div className="all-days">
+                      {dateArray.map((date, index) => (
+                        <button
+                          onClick={() => handleSelectedDay(date)}
+                          className={`days ${selectedDate && selectedDate.day === date.day ? 'selected-day' : ''}`}
+                          key={index}
+                        >
+                          {date.day}
+                        </button>
+                      ))}
+                    </div>
+
+                    {selectedDate && (
+                      <SelectedHour
+                        handleHoursSelection={handleHoursSelection}
+                        cart={cart}
+                        selectedDate={selectedDate}
+                        reservations={reservations}
+                        setSelectedInterval={setSelectedInterval}
+                        selectedInterval={selectedInterval}
+                        selectedHour={selectedHour}
+                        setSelectedHour={setSelectedHour}
+                      />
+                    )}
+                  </section>
+                )
+          }
+    </>
+
   )
 }
 
