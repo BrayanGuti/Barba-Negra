@@ -42,6 +42,7 @@
   .barber-galery{
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
   }
 
   .shadow-container.shift-left {  
@@ -62,16 +63,25 @@
   align-items: center;
   background-color: #868686;
   color: #FFF;
-  padding: 10px;
   height: 200px;
+  padding: 10px;
   border-radius: 7px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 9999999999999999;
 }
 
 .barber-container img {
-  height: 80%;
+  height: 85%;
   border-radius: 7px;
 }
+
+@media (max-width: 768px) {
+  .barber-container {
+    height: 25vh;
+  }
+  
+}
+
 
 .barber-container p {
   margin: auto 0;

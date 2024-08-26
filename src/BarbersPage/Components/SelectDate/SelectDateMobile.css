@@ -3,12 +3,14 @@
     right: 0;
     top: 0;
     flex-direction: column;
-    background-color: #000;
+    background-color: #fff;
+    border-left: #ccc 4px solid;
     gap: 7px;
     z-index: 99999;
     width: 80vw;
     height: 100%;
     animation: asideMotion 0.2s linear forwards;
+    overflow-y: auto;
 }
 
 .close-aside{
@@ -33,4 +35,24 @@ to {
     to {
         width: 0;
     }
+}
+
+.aside-content{
+    margin: 0 5%;
+    min-width: 70vw;
+}
+
+.close-icon{
+    margin: 0;
+}
+
+.title{
+    margin: 2px 0;
+    font-size: 1.5rem;
+}
+
+.title-barber{
+    color: #099396;
+    font-size: 30px;
+    margin: 2px 0;
 }

@@ -145,12 +145,12 @@ export function SelectDate ({ cart, handleHoursSelection, barber, setBarber }) {
             windowWidth <= 768
               ? (
                   <aside className="aside">
-                    <svg onClick={handleCloseAside}
+                    <svg className="close-icon" onClick={handleCloseAside}
     xmlns="http://www.w3.org/2000/svg"
     x="0px"
     y="0px"
-    width="50"
-    height="50"
+    width="30"
+    height="30"
     viewBox="0 0 256 256"
     fill="#777474"
     fillRule="nonzero"
@@ -169,6 +169,35 @@ export function SelectDate ({ cart, handleHoursSelection, barber, setBarber }) {
       <path d="M9.15625,6.3125l-2.84375,2.84375l15.84375,15.84375l-15.9375,15.96875l2.8125,2.8125l15.96875,-15.9375l15.9375,15.9375l2.84375,-2.84375l-15.9375,-15.9375l15.84375,-15.84375l-2.84375,-2.84375l-15.84375,15.84375z"></path>
     </g>
                     </svg>
+                    <section className='aside-content'>
+                    <h2 className='title'>Selecciona tu fecha y hora con </h2>
+                    <h2 className='title-barber'>{barber.name}</h2>
+                    {selectedDate && <h3>{spanishMonths[selectedDate.month]}</h3>}
+                    <div className="all-days">
+                      {dateArray.map((date, index) => (
+                        <button
+                          onClick={() => handleSelectedDay(date)}
+                          className={`days ${selectedDate && selectedDate.day === date.day ? 'selected-day' : ''}`}
+                          key={index}
+                        >
+                          {date.day}
+                        </button>
+                      ))}
+                    </div>
+
+                    {selectedDate && (
+                      <SelectedHour
+                        handleHoursSelection={handleHoursSelection}
+                        cart={cart}
+                        selectedDate={selectedDate}
+                        reservations={reservations}
+                        setSelectedInterval={setSelectedInterval}
+                        selectedInterval={selectedInterval}
+                        selectedHour={selectedHour}
+                        setSelectedHour={setSelectedHour}
+                      />
+                    )}
+                  </section>
                   </aside>
                 )
               : (

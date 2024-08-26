@@ -36,12 +36,22 @@ export default function Barbers () {
     }
     setSelectedInterval(false)
     setBarber(null)
-    setLastServicePage(selectedCartIndex + 1)
+    if (lastServicePage <= selectedCartIndex) {
+      setLastServicePage(selectedCartIndex + 1)
+    }
     if (selectedCartIndex < cart.length - 1) {
-      setSelectedCartIndex(selectedCartIndex + 1)
+      if (lastServicePage <= selectedCartIndex) {
+        setSelectedCartIndex(selectedCartIndex + 1)
+      } else {
+        setSelectedCartIndex(lastServicePage)
+      }
     } else {
       handleServicesSelection(selectedCartIndex)
-      console.log('Cita agendada')
+      const clonedAllServicesInformation = structuredClone(allServicesInformation.current)
+
+      localStorage.setItem('services', JSON.stringify(clonedAllServicesInformation))
+
+      window.location.href = '/send.html'
     }
   }
 
