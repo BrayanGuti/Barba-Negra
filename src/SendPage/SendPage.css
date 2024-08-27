@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .appointment-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+    .logo{
+      height: 15vh;
+    }
+
+  .background{
+    height: 15vh;
+    background-color: #0c0c0c;
+    width: 100vw;
+    z-index: -1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+  h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 160%;
+  }
+  
+  .services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .service-item {
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .service-item h2 {
+    margin-top: 0;
+    color: #000;
+  }
+  
+  .user-form {
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .user-form h2 {
+    margin-top: 0;
+    color: #000;
+  }
+  
+  input {
+    display: block;
+    width: 97%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #000;
+    border-radius: 3px;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+  
+  @media (max-width: 768px) {
+    input{
+        width: 90%;
+    };
+
+    .services-list {
+      grid-template-columns: 1fr;
+      overflow-y: auto;
+      max-height: 40vh;
+    }
+    .services-list {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+        max-height: 40vh;
+      
+        scrollbar-width: thin; 
+        scrollbar-color: #2e2e2e #1c1c1c; 
+      }
+      
+      .services-list::-webkit-scrollbar {
+        width: 8px;
+      }
+      
+      .services-list::-webkit-scrollbar-thumb {
+        background-color: #2e2e2e; 
+        border-radius: 4px; 
+      }
+      
+      .services-list::-webkit-scrollbar-track {
+        background-color: #1c1c1c; 
+      }
+      
+  }
