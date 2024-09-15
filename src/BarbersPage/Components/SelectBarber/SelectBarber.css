@@ -8,9 +8,6 @@
 }
 
 .shadow-container {
-  background-color: #462305;
-  border-radius: 7px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
   padding: 20px;
   height: 75vh;
   width: 50vw;
@@ -24,73 +21,77 @@
   animation: slideLeft 1s ease forwards; 
 }
 
-.barber-galery {
-  width: min-content;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+
+
+.barbersGalery {
+  display: flex;
+  height: 75vh;
+  width: 50vw; 
 }
 
-.barber-galery > .barber-container:nth-child(odd):last-child {
-  grid-column: span 2;
-  width: min-content;
-  margin: 0 auto;
-  padding-top: 10px;
+.barbersGalery.single {
+  width: 400px; 
+  transition: width 0.5s ease, opacity 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
 }
+.barbersGalery.single:hover {
+  width: 450px; 
+}
+
+.barbersGalery-thubmnail {
+  width: 0px;
+  flex-grow: 1;
+  object-fit: cover;
+  object-position: center;
+  transition: width 0.5s ease, opacity 0.5s ease, filter 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.barbersGalery-thubmnail:hover {
+  cursor: pointer;
+  width: 300px;
+}
+
+
 
 @media (max-width: 768px) {
-  .barber-galery{
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-  }
-
   .shadow-container.shift-left {  
     animation: none; 
   }
 
+  .main-container{
+    margin: 0;
+  }
+
   .shadow-container {
-    margin: auto 0;
-    width: 80vw;
+    padding: 0;
     height: 60vh;
+    width: 95vw;
   }
-}
 
-.barber-container {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #868686;
-  color: #FFF;
-  height: 200px;
-  padding: 10px;
-  border-radius: 7px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 9999999999999999;
-}
+  .barbersGalery {
+    margin: 0 auto;
+      height: 60vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 95vw;
+  }
 
-.barber-container img {
-  height: 85%;
-  border-radius: 7px;
-}
+  .barbersGalery.single {
+    width: 95vw;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 
-@media (max-width: 768px) {
-  .barber-container {
-    height: 25vh;
+  .barbersGalery-thubmnail{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
   }
   
+  .barbersGalery-thubmnail:hover {
+    cursor: pointer;
+    width: 47.5vw;
+  }
+
 }
-
-
-.barber-container p {
-  margin: auto 0;
-}
-
-.barber-container:hover {
-  transform: translateY(-10px);
-}
-
-
-
-  

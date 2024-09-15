@@ -18,6 +18,7 @@ export default function Barbers () {
 
   const handleHoursSelection = ({ setSelectedInterval, selectedDate, selectedInterval }) => {
     const currentService = cart[selectedCartIndex]?.name
+    const currentServiceId = cart[selectedCartIndex]?.id
 
     if (allServicesInformation.current[currentService]) {
       setServiceChangeNotification(true)
@@ -30,8 +31,10 @@ export default function Barbers () {
       ...allServicesInformation.current,
       [currentService]: {
         barber: barber?.name,
+        barberId: barber?.id,
         selectedDate,
-        selectedInterval
+        selectedInterval,
+        currentServiceId
       }
     }
     setSelectedInterval(false)

@@ -4,83 +4,7 @@ import './SelectDate.css'
 import './SelectDateMobile.css'
 
 export function SelectDate ({ cart, handleHoursSelection, barber, setBarber }) {
-  const reservations = [
-    {
-      day: 17,
-      month: 7,
-      Reservations: [
-        { start: '09:00', end: '09:30' },
-        { start: '10:00', end: '10:45' },
-        { start: '11:00', end: '11:30' },
-        { start: '12:00', end: '12:50' },
-        { start: '14:00', end: '14:30' },
-        { start: '15:00', end: '15:50' },
-        { start: '16:00', end: '16:45' }
-      ]
-    },
-    {
-      day: 18,
-      month: 7,
-      Reservations: [
-        { start: '09:15', end: '09:45' },
-        { start: '10:30', end: '11:20' },
-        { start: '12:00', end: '12:30' },
-        { start: '13:00', end: '13:40' },
-        { start: '15:00', end: '15:30' },
-        { start: '16:00', end: '16:50' }
-      ]
-    },
-    {
-      day: 19,
-      month: 7,
-      Reservations: [
-        { start: '09:00', end: '09:30' },
-        { start: '10:00', end: '10:50' },
-        { start: '11:00', end: '11:30' },
-        { start: '12:00', end: '12:40' },
-        { start: '14:00', end: '14:50' },
-        { start: '15:30', end: '16:00' }
-      ]
-    },
-    {
-      day: 20,
-      month: 7,
-      Reservations: [
-        { start: '09:30', end: '10:00' },
-        { start: '10:30', end: '11:20' },
-        { start: '12:00', end: '12:45' },
-        { start: '13:00', end: '13:30' },
-        { start: '14:00', end: '14:50' },
-        { start: '15:00', end: '15:30' },
-        { start: '16:00', end: '16:50' }
-      ]
-    },
-    {
-      day: 21,
-      month: 7,
-      Reservations: [
-        { start: '09:00', end: '09:40' },
-        { start: '10:00', end: '10:50' },
-        { start: '11:00', end: '11:30' },
-        { start: '12:00', end: '12:50' },
-        { start: '13:30', end: '14:00' },
-        { start: '15:00', end: '15:40' },
-        { start: '16:00', end: '16:30' }
-      ]
-    },
-    {
-      day: 22,
-      month: 7,
-      Reservations: [
-        { start: '09:00', end: '09:30' },
-        { start: '10:00', end: '10:50' },
-        { start: '11:00', end: '11:30' },
-        { start: '12:00', end: '12:40' },
-        { start: '14:00', end: '14:50' },
-        { start: '15:30', end: '16:00' }
-      ]
-    }
-  ]
+  const reservations = barber.reserved_hours
 
   const spanishMonths = [
     'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
@@ -250,10 +174,11 @@ function SelectedHour ({ cart, selectedDate, reservations, handleHoursSelection,
   }
 
   const selectedDayReservations = reservations.find(
-    reservation => reservation.day === selectedDate.day && reservation.month === selectedDate.month
+    reservation => reservation.day === selectedDate.day && (reservation.month - 1) === selectedDate.month
   )
 
   const notAvailableReservations = selectedDayReservations ? selectedDayReservations.Reservations : []
+  console.log(notAvailableReservations)
   const serviceDuration = cart.duration
 
   const timeSlots = generateTimeSlots(serviceDuration, notAvailableReservations)

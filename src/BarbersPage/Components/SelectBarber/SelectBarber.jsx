@@ -1,20 +1,34 @@
 import './SelectBarber.css'
+import React, { useEffect, useState } from 'react'
 import { SelectDate } from '../../Components/SelectDate/SelectDate'
 
 export function SelectBarber ({ cart, handleHoursSelection, setBarber, barber }) {
+  const [isSingle, setIsSingle] = useState(false)
+
   const handleBarberSelection = (person) => {
     setBarber(person)
   }
 
+  useEffect(() => {
+    if (cart.personnel.length === 1) {
+      setIsSingle(true)
+    } else {
+      setIsSingle(false)
+    }
+  }, [cart.personnel.length]) //
+
   return (
     <div className="main-container">
       <div className={`shadow-container ${barber ? 'shift-left' : ''}`}>
-        <section className='barber-galery'>
+        <section className={`barbersGalery ${isSingle ? 'single' : ''}`}>
           {cart.personnel.map((person, index) => (
-            <div onClick={() => handleBarberSelection(person)} className='barber-container' key={index}>
-              <img src='https://i.pinimg.com/736x/63/8b/7f/638b7f45b88a0b0ec5e913b47a031deb.jpg' alt={person.name} />
-              <p>{person.name}</p>
-            </div>
+            <img
+              key={index}
+              onClick={() => handleBarberSelection(person)}
+              className="barbersGalery-thubmnail"
+              src={person.thumbnail_url}
+              alt={person.name}
+            />
           ))}
         </section>
       </div>
