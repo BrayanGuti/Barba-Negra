@@ -1,9 +1,8 @@
-.inputForCart{
+.input-for-mobile {
     display: none;
 }
 
-
-.cart-view{
+.cart-view-for-mobile {
     width: 100vw;
     height: 10vh;
     border-top: 1px #000 solid;
@@ -13,7 +12,7 @@
     bottom: 0;
 }
 
-.cart-view-container{
+.cart-view-container-for-mobile {
     font-family: system-ui, sans-serif; 
     position: relative;
     height: 100%;
@@ -25,7 +24,7 @@
     margin: 0 10%;
 }
 
-.cart-view-container button{
+.cart-view-container-for-mobile button {
     background-color: #0C0C0C;
     display: flex;
     align-items: center;
@@ -36,81 +35,77 @@
     border-radius: 10px;    
 }
 
-.cart-view-information h3, h4{
+.cart-view-information-for-mobile h3, h4 {
     margin: 0;
 }
 
-.cart-view-information h3{
+.cart-view-information-for-mobile h3 {
     font-size: 18px;
     font-weight: 500;
 }
 
-.cart-view-information h4{
+.cart-view-information-for-mobile h4 {
     font-size: 13px;
     font-weight: 400;
     color: #5f5f5f;
 }
 
-
-
-.error{
+.error-for-mobile {
     background-color: #0C0C0C;
     color: #fff;
     padding: 5px;
     border-radius: 7%;
 }
 
-.full-cart{
+.full-cart-for-mobile {
     position: absolute;
     left: -2.6%;
     bottom: 0;
-	flex-direction: column;
+    flex-direction: column;
     background-color: #faf9f9;
-	gap: 7px;
-    width: 100vW;
-	z-index: 99999;
+    gap: 7px;
+    width: 100vw;
+    z-index: 99999;
     display: none;
 }
 
-@keyframes fullCartMotion {
+@keyframes fullCartMotion-for-mobile {
     from {
-	    height: 0vh;
+        height: 0vh;
     }
     to {
         height: 80vh;
     }
 }
 
-@keyframes fullCartMotionEnd {
+@keyframes fullCartMotionEnd-for-mobile {
     0% {
         display: flex;
         height: 80vh;
     }
-    99.99%{
+    99.99% {
         display: none;
     }
     100% {
-	    height: 0vh;
+        height: 0vh;
     }
 }
 
-.no-animation {
+.no-animation-for-mobile {
   animation: none !important;
 }
 
-.cart-view ~ input:checked ~ .full-cart {
+.cart-view-for-mobile ~ input:checked ~ .full-cart-for-mobile {
     display: flex;
-    animation: fullCartMotion 0.2s linear forwards;
+    animation: fullCartMotion-for-mobile 0.2s linear forwards;
 }
 
-.cart-view ~ input:not(:checked) ~ .full-cart {
-    animation: fullCartMotionEnd 0.2s linear forwards;
+.cart-view-for-mobile ~ input:not(:checked) ~ .full-cart-for-mobile {
+    animation: fullCartMotionEnd-for-mobile 0.2s linear forwards;
 }
 
-
-
-.close-icon{
-    position:absolute ;
+.close-icon-for-mobile {
+    position: absolute;
     z-index: 10;
     cursor: pointer;
     display: flex;
@@ -121,7 +116,7 @@
     height: 30px;
 }
 
-.logo-container{
+.logo-container-for-mobile {
     top: 0;
     display: flex;
     justify-content: center;
@@ -132,11 +127,11 @@
     margin-bottom: 10px;
 }
 
-.logo-container-img{
+.logo-container-img-for-mobile {
     height: 90%;
 }
 
-.cart-services{
+.cart-services-for-mobile {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -146,26 +141,39 @@
     overflow-y: auto;
 }
 
-.cart-item{
+.cart-item-for-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: #f3ededee;
 }
 
-.cart-item h3{
+.cart-item-for-mobile h3 {
     font-size: 20px;
     font-weight: 700;
 }
 
-.cart-item span{
+.cart-item-for-mobile span {
     font-weight: 700;
     font-size: 15px;
 }
 
-.cart-item p{
+.cart-item-for-mobile p {
     font-weight: 400;
     font-size: 15px;
 }
 
-.reservar-button{
+.cart-services-for-mobile button {
+    background-color: #5a3806;
+    color: #fff;
+    width: 90%;
+    padding: 10px 0px;
+    border-radius: 7px;
+
+}
+
+
+.reservar-button-for-mobile {
     margin: 0 auto;
     width: 90%;
     background-color: #0C0C0C;

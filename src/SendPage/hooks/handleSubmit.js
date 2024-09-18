@@ -28,7 +28,7 @@ export async function post (e, userData, services) {
 async function postTheservice (combinedData) {
   // Hacer solicitud POST
   try {
-    const response = await fetch('http://127.0.0.1:8000/api/scheduledservices/', {
+    const response = await fetch('https://uniform-noni-brayanguti-8c8ba7ad.koyeb.app/api/scheduledservices/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

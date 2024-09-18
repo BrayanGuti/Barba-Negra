@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './SendPage.css'
 import { post } from './hooks/handleSubmit'
 
-export default function SendPage () {
+export function SendPage () {
   const [services, setServices] = useState({})
   const [userData, setUserData] = useState({ name: '', email: '', phone: '' })
   const [postResponse, setPostResponse] = useState(false)
@@ -32,61 +32,64 @@ export default function SendPage () {
     setTimeout(() => {
       setPostResponse(false)
       localStorage.removeItem('services')
-      window.location.href = '/index.html'
+      window.location.href = '/'
     }, 2000)
   }
 
   return (
-      <>
-          <div className="background">
-              <img className='logo' src="../../images/LOGO.jpeg" alt="" />
-              <h1>Rellena con tu información</h1>
-          </div>
+    <>
+      <div className='background'>
+        <img className='logo' src='./LOGO.jpeg' alt='' />
+        <h1 className='h1-sendPage'>Rellena con tu información</h1>
+      </div>
 
-          <div className="appointment-page">
-            <div className="services-list">
-              {Object.entries(services).map(([service, details]) => (
-                <div key={service} className="service-item">
-                  <h2>{service}</h2>
-                  <p>Barber: {details.barber}</p>
-                  <p>Fecha: {details.selectedDate.day}/{details.selectedDate.month}</p>
-                  <p>Horas: {details.selectedInterval.replace(',', ' - ')}</p>
-                </div>
-              ))}
+      <div className='appointment-page'>
+        <div className='service-item-sendPage '>
+          {Object.entries(services).map(([service, details]) => (
+            <div key={service} className='service-item'>
+              <h2>{service}</h2>
+              <p>Barber: {details.barber}</p>
+              <p>Fecha: {details.selectedDate.day}/{details.selectedDate.month}</p>
+              <p>Horas: {details.selectedInterval.replace(',', ' - ')}</p>
             </div>
-            <form onSubmit={handleSubmit} className="user-form">
-              <h2>Completa con tu información</h2>
-              <input
-                type="text"
-                name="name"
-                placeholder="Tu Nombre"
-                value={userData.name}
-                onChange={handleInputChange}
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Tu Email (Opcional)"
-                value={userData.email}
-                onChange={handleInputChange}
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Tu Teléfono"
-                value={userData.phone}
-                onChange={handlePhoneChange}
-                required
-              />
-              <button type="submit">Confirmar</button>
-            </form>
-          </div>
+          ))}
+        </div>
+        <form onSubmit={handleSubmit} className='user-form'>
+          <h2>Completa con tu información</h2>
+          <input
+            className='input-sendPage'
+            type='text'
+            name='name'
+            placeholder='Tu Nombre'
+            value={userData.name}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            className='input-sendPage'
+            type='email'
+            name='email'
+            placeholder='Tu Email (Opcional)'
+            value={userData.email}
+            onChange={handleInputChange}
+          />
+          <input
+            className='input-sendPage'
+            type='tel'
+            name='phone'
+            placeholder='Tu Teléfono'
+            value={userData.phone}
+            onChange={handlePhoneChange}
+            required
+          />
+          <button className='button-sendPage' type='submit'>Confirmar</button>
+        </form>
+      </div>
 
-          <div className={postResponse ? 'notification show' : 'notification'}>
-            Su cita se ha enviado con exito
-          </div>
+      <div className={postResponse ? 'notification show' : 'notification'}>
+        Su cita se ha enviado con exito
+      </div>
 
-      </>
+    </>
   )
 }

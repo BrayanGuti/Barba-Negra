@@ -2,8 +2,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
   }
   
   .appointment-page {
@@ -26,7 +24,7 @@ body {
     align-items: center;
 }
 
-  h1 {
+  .h1-sendPage {
     text-align: center;
     color: #fff;
     font-size: 160%;
@@ -39,8 +37,12 @@ body {
     margin-bottom: 30px;
   }
   
-  .service-item {
-    background-color: #fff;
+  .service-item-sendPage {
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    text-align: left;
+    background-color: #c9bbbb;
     border: 1px solid #000;
     padding: 15px;
     border-radius: 5px;
@@ -63,7 +65,7 @@ body {
     color: #000;
   }
   
-  input {
+  .input-sendPage {
     display: block;
     width: 97%;
     padding: 10px;
@@ -72,7 +74,7 @@ body {
     border-radius: 3px;
   }
   
-  button {
+  .button-sendPage {
     display: block;
     width: 100%;
     padding: 10px;
@@ -84,12 +86,12 @@ body {
     font-size: 16px;
   }
   
-  button:hover {
+  .button-sendPage:hover {
     background-color: #333;
   }
   
   @media (max-width: 768px) {
-    input{
+    .input-sendPage{
         width: 90%;
     };
 

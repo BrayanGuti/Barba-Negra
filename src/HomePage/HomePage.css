@@ -39,7 +39,7 @@ body{
 	}
 
 
-	.aside{
+	.aside-home{
 		position: fixed;
 		right: 0;
 		top: 0;
@@ -76,11 +76,11 @@ body{
 	    }
 	}
 
-	.menu-button ~ input:checked ~ .aside {
+	.menu-button ~ input:checked ~ .aside-home {
 	    animation: asideMotion 0.2s linear forwards;
 	}
 
-	.menu-button ~ input:not(:checked) ~ .aside {
+	.menu-button ~ input:not(:checked) ~ .aside-home {
     	animation: asideMotionEnd 0.3s linear forwards;
 	}
 
@@ -106,7 +106,7 @@ body{
     }
     
 
-    header {
+    .header-home {
 		position: relative;
 		background-color: #0C0C0C;
 		text-align: center;
@@ -135,7 +135,7 @@ body{
 		.titulos a{
 			font-size: 20px;
 		}
-		header{
+		.header-home{
 			display: flex;
 			justify-content: end;
 			padding-right: 30px;
@@ -178,7 +178,7 @@ body{
     width: 100%;
 	}
 	
-	.logo{
+	.logo-home{
 		position: absolute;
 		height: 95%;
 		top: 0;
@@ -186,7 +186,7 @@ body{
 	}
 
 	.main{
-		background: url('../../images/Real_background.jpg');
+		background: url('./Real_background.jpg');
 		background-repeat: no-repeat;
 		background-attachment: local;
 		background-size: cover;
@@ -210,7 +210,7 @@ body{
 		background: rgba(0, 0, 0, 0.75);
 	}
 
-	h2{
+	.h2-HomePage{
 		width: 70%;
 		color: #FFF;
 		text-align: center;
@@ -222,7 +222,7 @@ body{
 	}
 
 	@media (max-width: 768px) {
-		h2{
+		.h2-HomePage{
 			font-size: 40px;
 		}
 	}

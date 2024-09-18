@@ -16,7 +16,7 @@ export function Slider ({ categories }) {
   }
 
   return (
-    <div className="slider">
+    <div className='slider'>
       {categories.map((category) => (
         <a
           href={`#${category}`}

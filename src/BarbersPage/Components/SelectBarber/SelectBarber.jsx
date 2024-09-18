@@ -18,14 +18,14 @@ export function SelectBarber ({ cart, handleHoursSelection, setBarber, barber })
   }, [cart.personnel.length]) //
 
   return (
-    <div className="main-container">
+    <div className='main-container'>
       <div className={`shadow-container ${barber ? 'shift-left' : ''}`}>
         <section className={`barbersGalery ${isSingle ? 'single' : ''}`}>
           {cart.personnel.map((person, index) => (
             <img
               key={index}
               onClick={() => handleBarberSelection(person)}
-              className="barbersGalery-thubmnail"
+              className='barbersGalery-thubmnail'
               src={person.thumbnail_url}
               alt={person.name}
             />

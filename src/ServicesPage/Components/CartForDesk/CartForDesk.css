@@ -1,36 +1,33 @@
-.cart{
+/* Estilo general para el contenedor principal */
+.cart-for-desk {
   position: relative;
-  grid-column: 2/3;
-  grid-row: 1/3;
-  height:85vh;
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  height: 85vh;
   border: #ccc solid 1px;
-
   display: grid;
   grid-template-rows: 1fr 7fr 1fr;
-  font-family: system-ui, sans-serif; 
-
+  font-family: system-ui, sans-serif;
 }
 
-
-
-.background{
-    background-color: #0C0C0C;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Estilo para el div con la clase background dentro de cart-for-desk */
+.cart-for-desk .background-for-desk {
+  background-color: #0C0C0C;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.background img{
-    height: 60px;
+.cart-for-desk .background-for-desk img {
+  height: 60px;
 }
 
-
-.cart-items{
+/* Estilo para cart-items dentro de cart-for-desk */
+.cart-for-desk .cart-items-for-desk {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
@@ -38,7 +35,8 @@
   overflow-y: auto;
 }
 
-.cart-item {
+/* Estilo para cada item del carrito dentro de cart-for-desk */
+.cart-for-desk .cart-item-for-desk {
   border: 1px solid #D8CBBB;
   border-radius: 8px;
   background-color: transparent;
@@ -49,30 +47,29 @@
   align-items: center;
 }
 
-.cart-item h3{
-  margin-bottom: 10px; 
+.cart-for-desk .cart-item-for-desk h3 {
+  margin-bottom: 10px;
   margin-top: 0px;
 }
 
-.cart-item p{
+.cart-for-desk .cart-item-for-desk p {
   margin: 5px 0px;
 }
 
-.cart-item button{
+.cart-for-desk .cart-item-for-desk button {
   background-color: #D8CBBB;
   font-weight: 600;
   color: black;
   padding: 10px 20px;
   border-radius: 10px;
-  
 }
 
-.cart-item button:hover{
+.cart-for-desk .cart-item-for-desk button:hover {
   cursor: pointer;
-
 }
 
-.send-part{
+/* Estilo para la sección de envío dentro de cart-for-desk */
+.cart-for-desk .send-part-for-desk {
   border-top: #ccc solid 1px;
   display: flex;
   flex-direction: column;
@@ -80,11 +77,11 @@
   margin: 0px 10px 10px 10px;
 }
 
-.send-part span{
+.cart-for-desk .send-part-for-desk span {
   font-weight: 500;
 }
 
-.send-part button{
+.cart-for-desk .send-part-for-desk button {
   text-align: center;
   text-decoration: none;
   background-color: #0C0C0C;
@@ -94,11 +91,12 @@
   border-radius: 7px;
 }
 
-.send-part button:hover{
+.cart-for-desk .send-part-for-desk button:hover {
   cursor: pointer;
 }
 
-.error{
+/* Estilo para el mensaje de error dentro de cart-for-desk */
+.cart-for-desk .error-for-desk {
   position: absolute;
   display: flex;
   align-items: center;

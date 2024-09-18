@@ -5,9 +5,10 @@ import { UseCart } from './Hooks/UseCart.js'
 import { useServices } from './Hooks/useBack.js'
 import { useState, useEffect } from 'react'
 import { Slider } from './Components/Slider/Slider.jsx'
+import { Link } from 'react-router-dom'
 import './ServicesMainFather.css'
 
-export default function ServicesMainFather () {
+export function ServicesMainFather () {
   const { data, loading, error } = useServices()
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -47,7 +48,15 @@ export default function ServicesMainFather () {
   const categories = Object.keys(groupedServices)
 
   return (
-    <div className="services-container">
+    <section id="Services" className="Services">
+        <div className="container">
+          <Link to="/">
+            <svg className="back-arrow icon" viewBox="0 0 1024 1024" fill="#262626" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#262626"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M669.6 849.6c8.8 8 22.4 7.2 30.4-1.6s7.2-22.4-1.6-30.4l-309.6-280c-8-7.2-8-17.6 0-24.8l309.6-270.4c8.8-8 9.6-21.6 2.4-30.4-8-8.8-21.6-9.6-30.4-2.4L360.8 480.8c-27.2 24-28 64-0.8 88.8l309.6 280z" fill=""></path></g></svg>
+          </Link>
+          <h2 className="h2">Servicios</h2>
+        </div>
+
+    <div className='services-container'>
       <>
         <Slider categories={categories} />
         <Services
@@ -60,22 +69,23 @@ export default function ServicesMainFather () {
 
         {windowWidth <= 768
           ? (
-          <CartForMobile
-            fail={fail}
-            formatPrice={formatPrice}
-            removeFromCart={removeFromCart}
-            cart={cart}
-          />
+            <CartForMobile
+              fail={fail}
+              formatPrice={formatPrice}
+              removeFromCart={removeFromCart}
+              cart={cart}
+            />
             )
           : (
-          <CartForDesk
-            fail={fail}
-            formatPrice={formatPrice}
-            removeFromCart={removeFromCart}
-            cart={cart}
-          />
+            <CartForDesk
+              fail={fail}
+              formatPrice={formatPrice}
+              removeFromCart={removeFromCart}
+              cart={cart}
+            />
             )}
       </>
     </div>
+    </section>
   )
 }

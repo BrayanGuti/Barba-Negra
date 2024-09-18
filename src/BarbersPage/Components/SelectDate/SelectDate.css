@@ -53,7 +53,7 @@
   color: #099396;
 }
 
-h3 {
+.titulo3-SelecDate {
   font-size: 22px;
   font-weight: 700;
   color: #0c0c0c;
@@ -62,7 +62,7 @@ h3 {
   position: relative;
 }
 
-h3::after {
+.titulo3-SelecDate::after {
   content: '';
   display: block;
   width: 60px;

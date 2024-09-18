@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { AppointmentScheduler } from './Components/AppointmentScheduler/AppointmentScheduler'
 import './BarbersMain.css'
 
-export default function Barbers () {
+export function Barbers () {
   const [cart, setCart] = useState([])
   const [selectedCartIndex, setSelectedCartIndex] = useState(0)
   const [lastServicePage, setLastServicePage] = useState(0)
@@ -54,7 +54,7 @@ export default function Barbers () {
 
       localStorage.setItem('services', JSON.stringify(clonedAllServicesInformation))
 
-      window.location.href = '/send.html'
+      window.location.href = '/Services/Barbers/Send'
     }
   }
 
@@ -94,7 +94,7 @@ export default function Barbers () {
 
 function ServicesPages ({ cart, handleServicesSelection, lastServicePage, selectedCartIndex }) {
   return (
-    <div className="all-pages">
+    <div className='all-pages'>
       {cart.map((item, index) => (
         <button
           className={`cart-pages ${selectedCartIndex === index ? 'selected' : ''}`}
