@@ -186,7 +186,7 @@ body{
 	}
 
 	.main{
-		background: url('./Real_background.jpg');
+		background: url('/Real_background.jpg');
 		background-repeat: no-repeat;
 		background-attachment: local;
 		background-size: cover;
